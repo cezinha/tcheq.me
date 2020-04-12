@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
+import './MyLocation.css';
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
 import {
   Container,
@@ -95,6 +96,13 @@ function MyLocation() {
           </Col>
         </Row>
       </Container>
+      <div className="box-invite">
+        <div>
+          <p>
+            <a href="/monitor">Monitore-me</a>
+          </p>
+        </div>
+      </div>
       <EventsExample />
     </div>
   );

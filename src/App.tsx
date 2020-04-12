@@ -18,6 +18,9 @@ import Step2a from './register/Step2a';
 import Step2b from './register/Step2b';
 import Step2c from './register/Step2c';
 import Step3 from './register/Step3';
+import Monitor1 from './monitor/index';
+import Monitor2 from './monitor/Monitor2';
+import Monitor3 from './monitor/Monitor3';
 
 function App() {
   return (
@@ -63,6 +66,15 @@ function App() {
           </Route>
           <Route exact path="/register/step3">
             <Step3 />
+          </Route>
+          <Route exact path="/monitor">
+            <Monitor1 />
+          </Route>
+          <Route exact path="/monitor/step2">
+            <Monitor2 />
+          </Route>
+          <Route exact path="/monitor/step3">
+            <Monitor3 />
           </Route>
         </Switch>
       </div>

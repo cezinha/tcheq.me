@@ -57,7 +57,7 @@ function Step2c() {
             </Form.Group>
             <Form.Group controlId="formQuarentine">
               <Form.Label>Há quantos dias está de quarentena?</Form.Label>
-              <Form.Control type="quarentine" placeholder="digite a quantidade" />
+              <Form.Control type="quarentine" placeholder="digite a quantidade" size="lg" />
             </Form.Group>
             <Button variant="primary" size="lg" block href='/register/step3'>Próximo</Button>{' '}
           </Col>

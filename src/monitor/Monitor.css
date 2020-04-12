@@ -1,0 +1,22 @@
+.PhoneInputCountryIcon,
+.PhoneInputCountryIcon--border {
+    line-height: 0;
+}
+.PhoneInputInput {
+    height: calc(1.5em + 1rem + 2px);
+    padding: .5rem 1rem;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    border-radius: .3rem;
+    border: 1px solid #ced4da;
+    background-color: #fff;
+    background-clip: padding-box;
+}
+
+.PhoneInputInput:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}

@@ -25,7 +25,7 @@ function Step2b() {
           <Col sm md={8} xs lg={4}>
             <Form.Group controlId="formQuarentine">
               <Form.Label>Há quantos dias está de quarentena?</Form.Label>
-              <Form.Control type="quarentine" placeholder="digite a quantidade" />
+              <Form.Control type="quarentine" placeholder="digite a quantidade" size="lg" />
             </Form.Group>
           </Col>
         </Row>

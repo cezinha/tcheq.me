@@ -49,42 +49,6 @@ html, body {
   }
 }
 
-#home-page .box-invite {
-  width: 100%;
-  background-color: #ffffff66;
-  position: absolute;
-  z-index: 1000;
-}
-
-#home-page .box-invite div {
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  width: 100%;
-}
-
-#home-page .box-invite div p {
-  text-align: center;
-  width: 300px;
-  margin: 0 auto;
-}
-
-#home-page .box-invite a {
-  background-color: #50a4d2;
-  padding: 20px;
-  display: block;
-  color: #fff;
-  font-size: 1.8rem;
-}
-
-#home-page .box-invite a:hover {
-  text-decoration: none;
-  color: #fff;
-  background-color: #ff6a60;
-}
-
 .content {
   padding-top: 1rem;
 }
