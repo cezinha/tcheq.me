@@ -10,6 +10,10 @@ html, body {
   display: block;
 }
 
+.logo {
+  height: 40px;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -43,4 +47,67 @@ html, body {
   to {
     transform: rotate(360deg);
   }
+}
+
+#home-page .box-invite {
+  width: 100%;
+  background-color: #ffffff66;
+  position: absolute;
+  z-index: 1000;
+}
+
+#home-page .box-invite div {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  width: 100%;
+}
+
+#home-page .box-invite div p {
+  text-align: center;
+  width: 300px;
+  margin: 0 auto;
+}
+
+#home-page .box-invite a {
+  background-color: #50a4d2;
+  padding: 20px;
+  display: block;
+  color: #fff;
+  font-size: 1.8rem;
+}
+
+#home-page .box-invite a:hover {
+  text-decoration: none;
+  color: #fff;
+  background-color: #ff6a60;
+}
+
+.content {
+  padding-top: 1rem;
+}
+.content h1 {
+  font-weight: 300;
+}
+.content p {
+  font-size: 1.3rem;
+}
+.content p.step {
+  font-size: 1.3rem;
+  color: #ccc;
+}
+
+.btn-group-lg>.btn, .btn-lg {
+  font-size: 1.4rem !important;
+}
+.content .form-check-input {
+  position: inherit;
+}
+.content .form-check-label {
+  margin-left: 0.5rem;
+}
+.content label {
+  font-size: 1.3rem;
 }

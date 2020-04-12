@@ -62,7 +62,7 @@ class EventsExample extends Component<IProps, IState> {
   }
 
   render() {
-    let h = window.innerHeight - 56 - 121;
+    let h = window.innerHeight - 66 - 121;
     const marker = this.state.hasLocation ? (
     <Marker position={this.state.latlng}>
       <Popup>You are here</Popup>

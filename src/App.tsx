@@ -13,18 +13,28 @@ import {
 import Home from './Home';
 import About from './About';
 import MyLocation from './MyLocation';
+import Step1 from './register/Step1';
+import Step2a from './register/Step2a';
+import Step2b from './register/Step2b';
+import Step2c from './register/Step2c';
+import Step3 from './register/Step3';
 
 function App() {
   return (
     <Router>
       <div className="App">
-        <Navbar bg="dark" variant="dark">
-          <Navbar.Brand href="/">Tcheq.me</Navbar.Brand>
+        <Navbar bg="light" variant="light">
+        <Navbar.Brand href="/">
+          <img
+            src="/logo.svg"
+            className="d-inline-block align-top logo"
+            alt="checkCOVID.me"
+          />
+        </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
               <Nav.Link href="/">Home</Nav.Link>
-              <Nav.Link href="/my-location">My location</Nav.Link>
               <Nav.Link href="/about">About</Nav.Link>
             </Nav>
           </Navbar.Collapse>
@@ -38,6 +48,21 @@ function App() {
           </Route>
           <Route exact path="/my-location">
             <MyLocation />
+          </Route>
+          <Route exact path="/register">
+            <Step1 />
+          </Route>
+          <Route exact path="/register/step2a">
+            <Step2a />
+          </Route>
+          <Route exact path="/register/step2b">
+            <Step2b />
+          </Route>
+          <Route exact path="/register/step2c">
+            <Step2c />
+          </Route>
+          <Route exact path="/register/step3">
+            <Step3 />
           </Route>
         </Switch>
       </div>
