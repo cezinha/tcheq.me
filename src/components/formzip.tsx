@@ -54,7 +54,7 @@ class FormZip extends React.PureComponent<IProps, FormState> {
 
   render() {
     if (this.props.dataSaved) {
-      alert(this.props.dataSaved);
+      //alert(this.props.dataSaved);
       window.location.href = '/my-location';
     }
     const zipcodeChanged = (values) => {
