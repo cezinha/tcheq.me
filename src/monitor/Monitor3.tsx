@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import '../App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
@@ -8,21 +8,25 @@ import {
   Button,
   Form
 } from 'react-bootstrap';
-import PhoneInput from 'react-phone-number-input';
+import { FormattedMessage } from 'react-intl';
 import './Monitor.css';
 
 function Monitor3() {
-  const [value4, setValue4] = useState();
-  const [value5, setValue5] = useState();
-
   return (
     <div id="monitor3" className="content">
       <Container>
         <Row>
           <Col sm md xs lg={8}>
             <header>
-              <h1>Por favor, cadastre até 5 celulares que receberão alertas caso seu estado de saúde se agrave!</h1>
-              <p className="step">Passo 3 / 3</p>
+              <h1>
+                <FormattedMessage id="app.monitor.step3.title"
+                  defaultMessage="Por favor, cadastre até 5 celulares que receberão alertas caso seu estado de saúde se agrave!"
+                  description="Monitor Step 3 Title"/>
+              </h1>
+              <p className="step">
+                <FormattedMessage id="app.step"
+                  defaultMessage="Step"
+                  description="Step Label"/> 3 / 3</p>
             </header>
           </Col>
         </Row>
@@ -133,7 +137,11 @@ function Monitor3() {
         </Row>
         <Row>
           <Col sm md={8} xs lg={4}>
-            <Button variant="primary" size="lg" block href="/my-location">Concluir</Button>{' '}
+            <Button variant="primary" size="lg" block href="/my-location">
+              <FormattedMessage id="app.monitor.button.submit"
+                defaultMessage="Concluir"
+                description="Submit Button Label"/>
+            </Button>{' '}
           </Col>
         </Row>
       </Container>

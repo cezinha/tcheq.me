@@ -1,111 +1,80 @@
-import React, { Component } from 'react';
+import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import './MyLocation.css';
-import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
 import {
   Container,
   Row,
-  Col
+  Col,
+  Spinner
 } from 'react-bootstrap';
-import { LocationEvent } from 'leaflet';
+import { RootState } from './store';
+import { thunkFindLocation } from './store/actions/location';
+import { connect, ConnectedProps } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { FormattedMessage } from 'react-intl';
+import MyMap from './components/mymap';
 
-interface IState {
-  hasLocation: boolean;
-  latlng: {
-    lat: number,
-    lng: number,
-  };
-};
+const mapState = (state: RootState) => ({
+  zipcode: state.form.zipcode,
+  isLoading: state.location.isLoading,
+  lat: state.location.lat,
+  lng: state.location.lng,
+  bounds: state.location.bounds,
+  points: state.location.points,
+  zoom: state.location.zoom
+});
 
-interface IProps {};
+const mapDispatch = (dispatch) => bindActionCreators({
+  findLocation: () => thunkFindLocation()
+}, dispatch);
 
-class EventsExample extends Component<IProps, IState> {
-  state: IState;
+const connector = connect(mapState, mapDispatch);
 
-  constructor(props:IProps) {
-    super(props);
+type PropsFromRedux = ConnectedProps<typeof connector>
 
-    this.state = {
-      hasLocation: false,
-      latlng: {
-        lat: 51.505,
-        lng: -0.09,
-      }
-    }
-  }
+type IProps = PropsFromRedux;
+
+class MyLocation extends React.PureComponent<IProps> {
+  element:HTMLElement;
 
   componentDidMount() {
-    this.locateUser();
-  }
-
-  mapRef: Map;
-
-  handleClick = () => {
-    const map = this.mapRef;
-    if (map != null) {
-      map.leafletElement.locate()
-    }
-  }
-
-  locateUser = () => {
-    const map = this.mapRef;
-    if (map != null) {
-      map.leafletElement.locate()
-    }
-  }
-
-  handleLocationFound = (e: LocationEvent) => {
-    this.setState({
-      hasLocation: true,
-      latlng: e.latlng,
-    });
+    this.props.findLocation();
   }
 
   render() {
-    let h = window.innerHeight - 66 - 121;
-    const marker = this.state.hasLocation ? (
-    <Marker position={this.state.latlng}>
-      <Popup>You are here</Popup>
-    </Marker>
-    ) : null
-
+    let h = window.innerHeight - 66;
+    if (this.props.isLoading) {
+      return (
+        <Container>
+          <Row>
+            <Col style={{textAlign: "center", height: h}}>
+              <div style={{position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)"}}>
+              <Spinner animation="border" role="status" variant="light" >
+                <span className="sr-only">Loading...</span>
+              </Spinner>
+              </div>
+            </Col>
+          </Row>
+        </Container>
+      );
+    }
     return (
-      <Map center={this.state.latlng} zoom={16} style={{height: h +'px'}} onLocationfound={this.handleLocationFound} onClick={this.handleClick} ref={mapRef => this.mapRef = mapRef}>
-        <TileLayer
-          url='https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw'
-          attribution='Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>'
-          id='mapbox/streets-v11'
-        />
-        {marker}
-      </Map>
+      <div id="my-location-page">
+        <div className="box-invite">
+          <div>
+            <p>
+              <a href="/monitor">
+              <FormattedMessage id="app.my_location.button"
+                defaultMessage="Monitore-me"
+                description="Check-me Button Label"/></a>
+            </p>
+          </div>
+        </div>
+        <MyMap />
+      </div>
     );
   }
 }
 
-function MyLocation() {
-  return (
-    <div id="my-location-page">
-      <Container>
-        <Row>
-          <Col>
-            <header>
-              <h1 className="display-4">My Location</h1>
-              <p className="lead">Marker shows where you are</p>
-            </header>
-          </Col>
-        </Row>
-      </Container>
-      <div className="box-invite">
-        <div>
-          <p>
-            <a href="/monitor">Monitore-me</a>
-          </p>
-        </div>
-      </div>
-      <EventsExample />
-    </div>
-  );
-}
-
-export default MyLocation;
+export default connector(MyLocation);

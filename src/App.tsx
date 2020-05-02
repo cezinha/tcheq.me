@@ -10,6 +10,7 @@ import {
   Switch,
   Route
 } from "react-router-dom";
+import { FormattedMessage } from 'react-intl';
 import Home from './Home';
 import About from './About';
 import MyLocation from './MyLocation';
@@ -37,8 +38,16 @@ function App() {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
-              <Nav.Link href="/">Home</Nav.Link>
-              <Nav.Link href="/about">About</Nav.Link>
+              <Nav.Link href="/">
+                <FormattedMessage id="app.menu.home"
+                  defaultMessage="HOME"
+                  description="Home Button Label"/>
+              </Nav.Link>
+              <Nav.Link href="http://www.checkcovid.me">
+                <FormattedMessage id="app.menu.about"
+                  defaultMessage="ABOUT"
+                  description="About Button Label"/>
+              </Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Navbar>

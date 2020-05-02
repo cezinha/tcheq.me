@@ -8,39 +8,40 @@
     "@testing-library/user-event": "^7.1.2",
     "@types/jest": "^24.0.0",
     "@types/leaflet": "^1.5.12",
-    "@types/lodash": "^4.14.149",
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
     "@types/react-leaflet": "^2.5.1",
-    "@types/react-router-dom": "^5.1.3",
+    "@types/react-router-dom": "^5.1.4",
+    "axios": "^0.19.2",
     "bootstrap": "^4.4.1",
+    "formik": "^2.1.4",
     "leaflet": "^1.6.0",
-    "lodash": "^4.17.15",
     "lodash.filter": "^4.6.0",
     "lodash.isnumber": "^3.0.3",
     "lodash.map": "^4.6.0",
     "lodash.max": "^4.0.1",
     "lodash.min": "^4.0.1",
     "lodash.reduce": "^4.6.0",
+    "ol": "^6.3.1",
     "react": "^16.13.1",
     "react-bootstrap": "^1.0.0",
     "react-dom": "^16.13.1",
+    "react-intl": "^4.4.0",
     "react-leaflet": "^2.6.3",
     "react-leaflet-heatmap-layer": "^2.0.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1",
     "simpleheat": "^0.4.0",
-    "typescript": "~3.7.2",
-    "@types/react-phone-number-input": "^3.0.3",
-    "react-number-format": "^4.4.1",
-    "react-phone-number-input": "^3.0.22"
+    "typescript": "~3.7.2"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "extract-messages-win": "set NODE_ENV=production&& babel ./src > language.json",
+    "extract-messages": "NODE_ENV=production babel ./src  --out-file /dev/null"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -56,5 +57,22 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@types/lodash": "^4.14.149",
+    "@types/react-phone-number-input": "^3.0.3",
+    "@types/react-redux": "^7.1.7",
+    "babel-plugin-react-intl": "^7.5.0",
+    "lodash": "^4.17.15",
+    "lodash.throttle": "^4.1.1",
+    "react-bootstrap-maskedinput": "^0.4.0",
+    "react-counter-input": "^0.2.1",
+    "react-number-format": "^4.4.1",
+    "react-phone-number-input": "^3.0.22",
+    "react-redux": "^7.2.0",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0"
   }
 }

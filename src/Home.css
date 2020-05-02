@@ -34,3 +34,7 @@
   color: #fff;
   background-color: #ff6a60;
 }
+
+h1.display-4 { 
+  margin-top: 1rem;
+}
